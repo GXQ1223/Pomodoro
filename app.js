@@ -28,8 +28,10 @@ function startPauseTimer() {
 
     isRunning = true;
     document.getElementById("startBtn").innerText = "Pause"; // Change button text to Pause
-    document.getElementById("sessionInfo").innerText = "Keep working!"; // Update message to Keep working
-  }
+    document.getElementById("sessionInfo").innerText = "Stay hard!"; // Update message to Keep working
+    // Auto-expand the textarea as you type
+
+    }
 }
 
 function handleSessionEnd() {
@@ -61,3 +63,8 @@ function formatTime(seconds) {
 
 // Add event listener to the start/pause button
 document.getElementById("startBtn").addEventListener("click", startPauseTimer);
+
+document.getElementById("notes").addEventListener("input", function () {
+    this.style.height = 'auto'; // Reset the height to auto to allow dynamic resizing
+    this.style.height = (this.scrollHeight) + 'px'; // Set height to match content
+});

@@ -8,14 +8,26 @@
 </head>
 <body>
   <div id="app">
-    <h1>Pomodoro Clock_Gua</h1>
+    <h1>David Goggins Pomodoro Clock</h1>
     <div id="timer">
       <span id="time">25:00</span>
     </div>
-    <button id="startBtn">Start</button>
-    <p id="sessionInfo">It's time to work!</p>
+    <button id="startBtn">Start</button> <!-- Button text initially set to "Start" -->
+    <p id="sessionInfo">Work time! Ready to grind!</p>
     <div id="pomodoroCounter">
       <span>Pomodoros completed: <span id="count">0</span></span>
+    </div>
+  </div>
+
+  <!-- Notes Section (Separate from Timer) -->
+  <div id="notesSection">
+    <div id="notesContainer">
+      <h2>Grinding notes</h2>
+      <textarea id="notes" placeholder="25 mins, you only learn so much. Copy and clear it after done. Stay Hard!" rows="4"></textarea>
+      <div id="notesButtons">
+        <button id="copyBtn">Copy</button>
+        <button id="clearBtn">Clear</button>
+      </div>
     </div>
   </div>
 

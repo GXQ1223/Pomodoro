@@ -11,10 +11,12 @@
     background: linear-gradient(135deg, #1e3a8a, #f59e0b); /* Blue to Orange Gradient */
     color: #ffffff; /* White text */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
   }
   
   /* Main app container */
@@ -24,8 +26,9 @@
     padding: 40px 40px 20px;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 30px; /* Space between timer and notes section */
   }
   
   /* Header */
@@ -50,7 +53,7 @@
   }
   
   /* Start/Pause button */
-button {
+  button {
     background: linear-gradient(135deg, #f59e0b, #ff6600); /* Gradient for the button */
     color: #ffffff; /* White text */
     padding: 15px 30px;
@@ -72,12 +75,6 @@ button {
     background-color: #d97706; /* Darker orange when clicked */
   }
   
-  
-  button:hover {
-    background: linear-gradient(135deg, #ff6600, #f59e0b); /* Reversed gradient on hover */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
   /* Session Info */
   #sessionInfo {
     font-size: 18px;
@@ -93,6 +90,7 @@ button {
     color: #f59e0b; /* Orange text */
   }
   
+  /* Updated #count with radial gradient and circular style */
   #count {
     font-weight: bold;
     font-size: 22px;
@@ -100,5 +98,68 @@ button {
     background: linear-gradient(135deg, #99a7ce, #f0cb8b); /* Blue to Orange Gradient */
     padding: 5px 15px;
     border-radius: 10px;
+  }
+  
+/* Notes Section */
+#notesSection {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 30px; /* Space between the timer and the notes section */
+    text-align: left;
+  }
+  
+  #notesContainer {
+    background-color: #ffffff; /* White background for the notes box */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  #notesContainer h2 {
+    font-size: 24px;
+    color: #f59e0b;
+    margin-bottom: 10px;
+  }
+  
+  /* Auto-expanding textarea */
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    min-height: 10px; /* Minimum height to start with */
+    max-height: 900px; /* Limit maximum height */
+    resize: none; /* Disable manual resizing */
+    background-color: #f0f0f0;
+    color: #333;
+    margin-bottom: 10px;
+    overflow: hidden; /* Hide the scrollbar */
+    transition: height 0.2s ease; /* Smooth transition for height */
+  }
+  
+  
+  
+/* Buttons below notes */
+#notesButtons {
+    display: flex;
+    justify-content: space-between; /* Space buttons apart */
+    gap: 15px; /* Add gap between buttons */
+  }
+  
+  button#copyBtn {
+    background-color: #4CAF50; /* Green color for the Copy button */
+    color: white;
+    flex: 1; /* Allow buttons to take up equal space */
+  }
+  
+  button#clearBtn {
+    background-color: #e66a00; /* Orange color for the Clear button */
+    color: white;
+    flex: 1; /* Allow buttons to take up equal space */
+  }
+  
+  button:active {
+    opacity: 0.8;
   }
   
