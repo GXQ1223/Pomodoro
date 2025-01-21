@@ -1,0 +1,94 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3a8a, #f59e0b); /* Blue to Orange Gradient */
+    color: #ffffff; /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Main app container */
+  #app {
+    text-align: center;
+    background-color: #ffffff; /* White background for the content */
+    padding: 40px 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    max-width: 100%;
+  }
+  
+  /* Header */
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #f59e0b; /* Orange color */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Timer */
+  #timer {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff; /* White text for the timer */
+    margin: 20px 0;
+    padding: 10px;
+    background: linear-gradient(135deg, #f59e0b, #ff6600); /* Orange to a darker orange gradient */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Start button */
+  button {
+    background: linear-gradient(135deg, #f59e0b, #ff6600); /* Gradient for the button */
+    color: #ffffff; /* White text */
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #ff6600, #f59e0b); /* Reversed gradient on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Session Info */
+  #sessionInfo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f59e0b; /* Orange color */
+    margin-top: 20px;
+  }
+  
+  /* Pomodoro Counter */
+  #pomodoroCounter {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #f59e0b; /* Orange text */
+  }
+  
+  #count {
+    font-weight: bold;
+    font-size: 22px;
+    color: #ffffff; /* White text for count */
+    background: linear-gradient(135deg, #99a7ce, #f0cb8b); /* Blue to Orange Gradient */
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  
