@@ -28,10 +28,8 @@ function startPauseTimer() {
 
     isRunning = true;
     document.getElementById("startBtn").innerText = "Pause"; // Change button text to Pause
-    document.getElementById("sessionInfo").innerText = "Stay hard!"; // Update message to Keep working
-    // Auto-expand the textarea as you type
-
-    }
+    document.getElementById("sessionInfo").innerText = "Keep working!"; // Update message to Keep working
+  }
 }
 
 function handleSessionEnd() {
@@ -64,7 +62,19 @@ function formatTime(seconds) {
 // Add event listener to the start/pause button
 document.getElementById("startBtn").addEventListener("click", startPauseTimer);
 
+// Auto-expand the textarea as you type
 document.getElementById("notes").addEventListener("input", function () {
-    this.style.height = 'auto'; // Reset the height to auto to allow dynamic resizing
-    this.style.height = (this.scrollHeight) + 'px'; // Set height to match content
+  this.style.height = 'auto'; // Reset the height to auto to allow dynamic resizing
+  this.style.height = (this.scrollHeight) + 'px'; // Set height to match content
+});
+
+// Copy button functionality
+document.getElementById("copyBtn").addEventListener("click", function() {
+  const notesText = document.getElementById("notes").value; // Get the content of the textarea
+  navigator.clipboard.writeText(notesText) // Copy the content to clipboard
+});
+
+// Clear button functionality
+document.getElementById("clearBtn").addEventListener("click", function() {
+  document.getElementById("notes").value = ""; // Clear the content of the textarea
 });
