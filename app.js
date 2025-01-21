@@ -4,18 +4,32 @@ let longBreakDuration = 15 * 60; // 15 minutes for long break
 let currentSession = 'work'; // Start with work session
 let pomodorosCompleted = 0; // Counter for completed Pomodoros
 let timerInterval;
+let isRunning = false; // Flag to check if timer is running
+let remainingTime = workDuration; // Keep track of remaining time (starts with workDuration)
 
-function startTimer() {
-  let timeRemaining = currentSession === 'work' ? workDuration : (currentSession === 'longBreak' ? longBreakDuration : breakDuration);
-  timerInterval = setInterval(() => {
-    if (timeRemaining <= 0) {
-      clearInterval(timerInterval);
-      handleSessionEnd();
-    } else {
-      timeRemaining--;
-      document.getElementById("time").innerText = formatTime(timeRemaining);
-    }
-  }, 1000);
+function startPauseTimer() {
+  if (isRunning) {
+    // Pause the timer
+    clearInterval(timerInterval);
+    isRunning = false;
+    document.getElementById("startBtn").innerText = "Start"; // Change button text back to Start
+    document.getElementById("sessionInfo").innerText = "Paused"; // Optional: Show Paused message
+  } else {
+    // Start or resume the timer from the current remaining time
+    timerInterval = setInterval(() => {
+      if (remainingTime <= 0) {
+        clearInterval(timerInterval);
+        handleSessionEnd();
+      } else {
+        remainingTime--;
+        document.getElementById("time").innerText = formatTime(remainingTime);
+      }
+    }, 1000);
+
+    isRunning = true;
+    document.getElementById("startBtn").innerText = "Pause"; // Change button text to Pause
+    document.getElementById("sessionInfo").innerText = "Keep working!"; // Update message to Keep working
+  }
 }
 
 function handleSessionEnd() {
@@ -24,16 +38,19 @@ function handleSessionEnd() {
     if (pomodorosCompleted % 4 === 0) {
       currentSession = 'longBreak';
       alert('Long Break! Time to relax for 15 minutes.');
+      remainingTime = longBreakDuration; // Reset remaining time for long break
     } else {
       currentSession = 'break';
       alert('Break time! Relax for 5 minutes.');
+      remainingTime = breakDuration; // Reset remaining time for break
     }
   } else {
     currentSession = 'work';
     alert('Work time! Focus and get things done.');
+    remainingTime = workDuration; // Reset remaining time for next work session
   }
   document.getElementById('count').innerText = pomodorosCompleted;
-  startTimer();
+  startPauseTimer(); // Restart the timer for the next session
 }
 
 function formatTime(seconds) {
@@ -42,6 +59,5 @@ function formatTime(seconds) {
   return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
 
-document.getElementById("startBtn").addEventListener("click", () => {
-  startTimer();
-});
+// Add event listener to the start/pause button
+document.getElementById("startBtn").addEventListener("click", startPauseTimer);

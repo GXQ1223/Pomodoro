@@ -49,8 +49,8 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
   
-  /* Start button */
-  button {
+  /* Start/Pause button */
+button {
     background: linear-gradient(135deg, #f59e0b, #ff6600); /* Gradient for the button */
     color: #ffffff; /* White text */
     padding: 15px 30px;
@@ -62,6 +62,16 @@
     width: 200px;
     margin-top: 20px;
   }
+  
+  button:hover {
+    background: linear-gradient(135deg, #ff6600, #f59e0b); /* Reversed gradient on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  button:active {
+    background-color: #d97706; /* Darker orange when clicked */
+  }
+  
   
   button:hover {
     background: linear-gradient(135deg, #ff6600, #f59e0b); /* Reversed gradient on hover */
